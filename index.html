@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Automation - Solusi CS & Sales 24/7 Humanis</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for aesthetic (Deep Dark Mode & Electric Blue Accent) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A; /* Ultra Deep Black Background */
+            scroll-behavior: smooth; /* Smooth scrolling for navigation */
+        }
+        
+        /* Custom subtle texture/gradient for main sections */
+        .section-bg {
+            background-color: #0F0F1A; /* Very dark blue-gray for depth */
+            border-bottom: 1px solid rgba(0, 196, 255, 0.1); /* Subtle blue border */
+        }
+
+        /* --- Custom Background for Hero Section (Menggunakan Gambar) --- */
+        .hero-image {
+            background-image: url('https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/65673.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        /* Overlay gelap untuk memastikan teks di Hero Section mudah dibaca */
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Overlay Gradient (Lebih gelap di bawah untuk memisahkan dengan konten berikutnya) */
+            background: linear-gradient(0deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.8) 100%);
+            z-index: 1;
+        }
+
+        /* Custom Card Styles for Features/Benefits */
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #1F2937; /* Dark border */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 196, 255, 0.3); /* Stronger Electric Blue Shadow */
+            border-color: #00C4FF;
+        }
+        
+        /* Icon styles */
+        .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background-color: rgba(0, 196, 255, 0.15); /* Light Cyan/Blue */
+            color: #00C4FF; /* Electric Blue */
+            font-size: 1.5rem;
+        }
+
+        /* Responsive CTA Button Animation */
+        .cta-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 196, 255, 0.4); 
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 196, 255, 0); /* Larger pulse effect */
+            }
+        }
+        
+        /* Custom text glow for titles */
+        .text-glow-cyan {
+            text-shadow: 0 0 5px rgba(0, 196, 255, 0.5);
+        }
+
+        /* --- BACKGROUND UNTUK SOLUSI KAMI (Solusi & Stats) --- */
+        .feature-bg-image {
+            background-image: url('https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/aiana-services.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            background-attachment: fixed; 
+        }
+
+        /* --- BACKGROUND UNTUK TANTANGAN & HARGA --- */
+        .details-bg-image {
+            background-image: url('https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/aiana-detailsBG.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .details-bg-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75); /* Darker overlay for better contrast */
+            z-index: 1;
+        }
+        
+        /* --- BACKGROUND UNTUK FINAL CTA (ACTION) --- */
+        .cta-bg-image {
+            background-image: url('https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/aiana-details-2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .cta-bg-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75); /* Dark overlay */
+            z-index: 1;
+        }
+
+        /* Ensure content is above the overlay (for details/pricing) */
+        .details-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ensure content is above the overlay (for feature/stats) */
+        .feature-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Ensure content is above the overlay (for CTA) */
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- FOOTER BACKGROUND STYLES (from previous revision) --- */
+        .footer-bg-image {
+            background-image: url('https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/footerBG.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        /* Overlay to ensure text readability on the background image */
+        .footer-bg-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+            z-index: 1;
+        }
+
+        /* Ensure content is above the overlay */
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header / Navigation (Fixed & Premium) -->
+    <header class="bg-black/90 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-cyan-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO: Ukuran Dikecilkan kembali agar header tidak terlalu besar -->
+            <div class="text-3xl font-extrabold text-white tracking-wider">
+                <img 
+                    src="https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/Logo%20White.png" 
+                    alt="Heillo AI Logo" 
+                    class="h-10 md:h-12 w-auto" 
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x80/00C4FF/0A0A0A?text=HEILLO+AI';"
+                />
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#masalah" class="text-gray-300 hover:text-cyan-400 transition duration-300 relative group">
+                    Masalah Anda
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#solusi" class="text-gray-300 hover:text-cyan-400 transition duration-300 relative group">
+                    Solusi Kami
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#harga" class="text-gray-300 hover:text-cyan-400 transition duration-300 relative group">
+                    Harga
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+            </nav>
+            <a href="#" onclick="showModal('demoModal'); return false;" class="bg-cyan-600 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-5 rounded-full shadow-lg transition duration-300 hidden md:inline-block">
+                Jadwalkan Demo
+            </a>
+            <!-- Mobile Menu Placeholder -->
+            <button class="md:hidden text-gray-300 hover:text-cyan-400">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1. ATTENTION (Hero Section) - VERSI STANDAR -->
+    <section class="hero-image text-white py-24 md:py-40">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20"> 
+            
+            <!-- 1. Pre-headline/Capsule (AI CHATBOT AUTOMATION NO. 1 DI INDONESIA) -->
+            <div class="inline-block mb-6">
+                <p class="text-sm uppercase font-bold tracking-widest bg-cyan-500/10 text-cyan-400 py-2 px-4 rounded-full border border-cyan-500/30 shadow-lg">
+                    AI CHATBOT AUTOMATION NO. 1 DI INDONESIA
+                </p>
+            </div>
+            
+            <!-- 2. Main Headline (STOP Kehilangan Konsumen dan Otomasi Sales Anda!) -->
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-snug mb-8 max-w-5xl mx-auto">
+                <span class="text-glow-cyan">STOP</span> Kehilangan Konsumen 
+                <br class="hidden sm:block"> 
+                dan Otomasi Sales Anda!
+            </h1>
+            
+            <!-- 3. Sub-headline/Body Text (Layanan Customer Service...) -->
+            <p class="text-xl md:text-2xl font-light mb-10 max-w-3xl mx-auto opacity-90">
+                Layanan Customer Service dan Sales Anda 24/7 kini ditenagai **AI Chatbot Humanis** yang Responsif dalam **3 Detik** — Jauh melampaui kinerja manusia.
+            </p>
+
+            <!-- 4. CTA Buttons (Primary and Secondary) -->
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#" onclick="showModal('demoModal'); return false;" class="cta-pulse bg-cyan-400 text-gray-900 hover:bg-cyan-300 font-bold py-4 px-10 rounded-full text-xl shadow-2xl transition duration-300 hover:scale-[1.03] w-full sm:w-auto">
+                    Jadwalkan Demo 15 Menit Gratis
+                </a>
+                <a href="#solusi" class="text-white border-2 border-cyan-400 hover:bg-cyan-400 hover:text-gray-900 font-semibold py-4 px-10 rounded-full text-xl transition duration-300 w-full sm:w-auto">
+                    Lihat Fitur Lengkap
+                </a>
+            </div>
+            
+            <!-- 5. Disclaimer/Guarantee -->
+            <p class="text-sm opacity-90 text-gray-400 mt-4">
+                Jaminan Setup Gratis | Tidak ada kartu kredit diperlukan.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. INTEREST - Stats (Social Proof) -->
+    <section class="py-20 md:py-32 feature-bg-image">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center feature-content">
+            <!-- Kotak gelap transparan untuk menjaga teks tetap terbaca di atas gambar latar yang cerah -->
+            <div class="bg-black/80 p-8 md:p-12 rounded-2xl shadow-2xl border border-cyan-800">
+                <h2 class="text-2xl font-semibold text-cyan-400 mb-10">Kami Mendorong Performa Bisnis di Berbagai Sektor</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Stat 1: Cost Reduction -->
+                    <div class="p-4 rounded-xl">
+                        <p class="text-6xl font-extrabold text-cyan-400 mb-1">50%</p>
+                        <p class="text-lg font-semibold mt-2 text-white">Penurunan Biaya CS</p>
+                        <p class="text-sm text-gray-400">Otomasi full mengurangi kebutuhan SDM 24/7.</p>
+                    </div>
+                    <!-- Stat 2: Response Time -->
+                    <div class="p-4 rounded-xl">
+                        <p class="text-6xl font-extrabold text-cyan-400 mb-1">3 Detik</p>
+                        <p class="text-lg font-semibold mt-2 text-white">Waktu Respons Rata-Rata</p>
+                        <p class="text-sm text-gray-400">Kecepatan instan menjaga *lead* tetap panas.</p>
+                    </div>
+                    <!-- Stat 3: Lead Quality -->
+                    <div class="p-4 rounded-xl">
+                        <p class="text-6xl font-extrabold text-cyan-400 mb-1">80%</p>
+                        <p class="text-lg font-semibold mt-2 text-white">Peningkatan Kualifikasi Lead</p>
+                        <p class="text-sm text-gray-400">Hanya *Sales-Ready Lead* yang diteruskan ke Sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8"><hr class="border-t border-cyan-900"></div>
+
+    <!-- 2. INTEREST (Pain Points & The Promise) -->
+    <section id="masalah" class="py-20 md:py-32 details-bg-image">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 details-content">
+            <div class="text-center mb-16">
+                <span class="text-cyan-400 font-semibold uppercase tracking-wider">TANTANGAN BISNIS ANDA</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Mengapa Anda Kehilangan Konversi Setiap Hari?</h2>
+                <p class="text-lg text-gray-400 max-w-4xl mx-auto mt-4">Kami menyelesaikan masalah spesifik yang dihadapi sektor-sektor dengan volume chat tinggi seperti Kecantikan, Retail, Properti, dan F&B.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- CS Pain Points -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-cyan-700/50 hover:shadow-cyan-900/50 transition duration-300">
+                    <h3 class="text-3xl font-bold mb-4 text-cyan-400 flex items-center">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Customer Service
+                    </h3>
+                    <ul class="space-y-4 text-gray-300 mt-5">
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Respons Lambat:</span> Kecepatan respons > 5 menit membuat 70% pelanggan pindah ke kompetitor.</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Biaya Tinggi:</span> Gaji dan *benefit* CS 24/7 memakan margin profit Anda.</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Inkonsisten:</span> Kualitas dan *tone* respon CS fluktuatif, dipengaruhi suasana hati dan kelelahan.</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Bukan 24/7:</span> Kehilangan peluang *lead* di jam sibuk atau luar jam kerja.</li>
+                    </ul>
+                </div>
+
+                <!-- Sales Pain Points -->
+                <div class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-cyan-700/50 hover:shadow-cyan-900/50 transition duration-300">
+                    <h3 class="text-3xl font-bold mb-4 text-cyan-400 flex items-center">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        Sales & Konversi
+                    </h3>
+                    <ul class="space-y-4 text-gray-300 mt-5">
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Telat Tindak Lanjut:</span> *Lead* panas mendingin karena Sales terlambat 5-10 menit.</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Waktu Terbuang:</span> Tim Sales menghabiskan 60% waktu untuk menjawab pertanyaan dasar yang berulang.</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Kualifikasi Buruk:</span> Sales sibuk melayani *lead* yang tidak memiliki *budget* atau niat beli (*tire kickers*).</li>
+                        <li class="flex items-start"><span class="text-red-500 font-extrabold mr-3 text-lg">✗</span> <span class="font-semibold text-cyan-200">Conversion Rate:</span> Potensi penjualan tidak dimaksimalkan karena inkonsistensi follow-up.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Divider -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8"><hr class="border-t border-cyan-900"></div>
+
+    <!-- 3. DESIRE (Features & Differentiation) -->
+    <section id="solusi" class="py-20 md:py-32 feature-bg-image">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 feature-content">
+            <div class="text-center mb-16">
+                <span class="text-cyan-900 dark:text-cyan-400 font-semibold uppercase tracking-wider">TEKNOLOGI HEILLO</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3">Diferensiasi: Cerdas, Cepat, dan Humanis</h2>
+            </div>
+            
+            <!-- Core Feature Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Respons Humanis & Akurasi -->
+                <div class="feature-card p-8 bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-lg"> <!-- Opacity changed to /90 -->
+                    <div class="icon-circle mb-5">🤖</div>
+                    <h3 class="text-xl font-bold text-white mb-3">AI Berbicara Seperti Manusia</h3>
+                    <p class="text-gray-400">Model AI kami dilatih khusus untuk **memahami konteks dan menghasilkan respon yang hangat**, meminimalkan kesan robotik 99%.</p>
+                </div>
+
+                <!-- Card 2: Sales Automation Power -->
+                <div class="feature-card p-8 bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-lg"> <!-- Opacity changed to /90 -->
+                    <div class="icon-circle mb-5">💰</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Lead Qualification & Booking Otomatis</h3>
+                    <p class="text-gray-400">AI mampu mengkualifikasi *lead* secara mendalam (BANT/Budget), melakukan *up-selling*, dan menjadwalkan *meeting* ke kalender Sales secara instan.</p>
+                </div>
+
+                <!-- Card 3: Integrasi Lintas Platform -->
+                <div class="feature-card p-8 bg-gray-900/90 backdrop-blur-sm rounded-xl shadow-lg"> <!-- Opacity changed to /90 -->
+                    <div class="icon-circle mb-5">🔗</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Integrasi Seamless Multichannel</h3>
+                    <p class="text-gray-400">Terhubung penuh ke **WhatsApp Official API, Instagram DM, Telegram, CRM** (Hubspot, Pipedrive), memastikan alur kerja data yang mulus.</p>
+                </div>
+            </div>
+
+            <!-- CS & Sales Feature Split -->
+            <div class="mt-20 pt-10 border-t border-cyan-800">
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">Detail Solusi Berdasarkan Divisi</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- CS Features -->
+                    <div class="p-8 bg-gray-900/90 backdrop-blur-sm rounded-xl border border-cyan-600/50"> <!-- Opacity changed to /90 -->
+                        <h4 class="text-2xl font-bold text-cyan-400 mb-5">Untuk Customer Service (CS)</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Resolusi Tiket Otomatis Level 1-2</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Fitur *Hand-off* ke 5 Human Agents Seat</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Unlimited AI Agents & Inboxes</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Dukungan Multilingual (ID, EN, JP, KR)</li>
+                        </ul>
+                    </div>
+                    <!-- Sales Features -->
+                    <div class="p-8 bg-gray-900/90 backdrop-blur-sm rounded-xl border border-cyan-600/50"> <!-- Opacity changed to /90 -->
+                        <h4 class="text-2xl font-bold text-cyan-400 mb-5">Untuk Sales & Marketing</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Kualifikasi Lead Otomatis (BANT)</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Auto Scheduling Demo/Meeting</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Up-selling dan Cross-selling AI</li>
+                            <li class="flex items-start"><span class="text-cyan-400 mr-2 font-bold text-xl">»</span> Integrasi CRM dan Real-Time Reporting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DESIRE (Pricing & Guarantee) -->
+    <section id="harga" class="py-20 md:py-32 details-bg-image">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 details-content">
+            <div class="text-center mb-16">
+                <span class="text-cyan-400 font-semibold uppercase tracking-wider">INVESTASI CERDAS</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Pilih Paket yang Meningkatkan Profit Anda</h2>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Basic Package -->
+                <div class="bg-gray-900/95 p-8 rounded-2xl shadow-xl border-t-8 border-cyan-700"> <!-- Opacity added -->
+                    <h3 class="text-2xl font-bold mb-4 text-white">Basic</h3>
+                    <p class="text-4xl font-extrabold text-cyan-400 mb-2">Rp 1.5 Juta <span class="text-xl font-semibold text-gray-400">/bulan</span></p>
+                    <p class="text-sm text-gray-400 mb-8">Cocok untuk UMKM dan Startup tahap awal.</p>
+                    <a href="#" onclick="showModal('demoModal'); return false;" class="w-full block text-center bg-cyan-600 hover:bg-cyan-700 text-gray-900 font-bold py-3 rounded-full transition duration-150 shadow-md">
+                        Pilih Paket Basic
+                    </a>
+                    <ul class="mt-8 space-y-4 text-gray-300 border-t border-gray-700 pt-6">
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> 3.000 Maximum Active Users</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> 5 Human Agents Seat</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> 15.000 AI Responses</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Heillo Advanced AI Models</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Free App Training & Support</li>
+                    </ul>
+                </div>
+
+                <!-- Pro Package (Recommended - Electric Accent) -->
+                <div class="bg-gray-900/95 p-8 rounded-2xl shadow-2xl ring-4 ring-cyan-500 scale-105 relative"> <!-- Opacity added -->
+                    <span class="block text-center absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 bg-cyan-500 text-gray-900 text-sm font-bold py-2 rounded-full uppercase shadow-xl">Paling Populer</span>
+                    <h3 class="text-2xl font-bold mb-4 text-white mt-4">Pro</h3>
+                    <p class="text-5xl font-extrabold text-cyan-400 mb-2">Rp 3.5 Juta <span class="text-xl font-semibold text-gray-400">/bulan</span></p>
+                    <p class="text-sm text-gray-400 mb-8">Ideal untuk Perusahaan Menengah & Pertumbuhan Cepat.</p>
+                    <a href="#" onclick="showModal('demoModal'); return false;" class="w-full block text-center bg-cyan-400 hover:bg-cyan-300 text-gray-900 font-bold py-3 rounded-full text-lg transition duration-150 shadow-lg hover:shadow-cyan-400/50">
+                        Mulai Otomasi Sekarang
+                    </a>
+                    <ul class="mt-8 space-y-4 text-gray-300 border-t border-cyan-500 pt-6">
+                        <li class="flex items-center font-bold text-cyan-200"><span class="text-green-500 mr-2">⭐</span> **10.000 Maximum Active Users**</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> 7 Human Agents Seat</li>
+                        <li class="flex items-center font-bold text-cyan-200"><span class="text-green-500 mr-2">⭐</span> **50.000 AI Responses**</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> **Free Onboarding and Setup**</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Dedicated Support & OpenAPI Access</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Free 1 Nomor WA Whitelist</li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="bg-gray-900/95 p-8 rounded-2xl shadow-xl border-t-8 border-cyan-700"> <!-- Opacity added -->
+                    <h3 class="text-2xl font-bold mb-4 text-white">Enterprise</h3>
+                    <p class="text-4xl font-extrabold text-cyan-400 mb-2">Rp 5.5 Juta <span class="text-xl font-semibold text-gray-400">/bulan</span></p>
+                    <p class="text-sm text-gray-400 mb-8">Untuk Korporasi dengan Volume Komunikasi Tinggi.</p>
+                    <a href="#" onclick="showModal('demoModal'); return false;" class="w-full block text-center bg-cyan-600 hover:bg-cyan-700 text-gray-900 font-bold py-3 rounded-full transition duration-150 shadow-md">
+                        Hubungi Tim Sales
+                    </a>
+                    <ul class="mt-8 space-y-4 text-gray-300 border-t border-gray-700 pt-6">
+                        <li class="flex items-center font-bold"><span class="text-cyan-400 mr-2">✓</span> **30.000 Maximum Active Users**</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> 10 Human Agents Seat</li>
+                        <li class="flex items-center font-bold"><span class="text-cyan-400 mr-2">✓</span> **150.000 AI Responses**</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Semua Fitur Paket Pro</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Dukungan Kustomisasi Tingkat Lanjut</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Free 1 Nomor WA Whitelist</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-16">
+                <p class="text-xl font-semibold text-cyan-400 bg-gray-900/90 inline-block px-6 py-3 rounded-full border border-cyan-700 shadow-lg"> <!-- Opacity added -->
+                    GARANSI: Kami Pastikan AI Anda Bekerja Sempurna dengan Setup Gratis!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ACTION (Final Call to Action) -->
+    <section class="py-20 md:py-32 cta-bg-image border-t border-cyan-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white cta-content">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-glow-cyan">Jangan Tunda Kerugian Lebih Lama!</h2>
+            <p class="text-xl font-light mb-10 max-w-4xl mx-auto text-gray-300">Ambil langkah pasti untuk mengotomasi dan menskalakan bisnis Anda. Waktu adalah konversi.</p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#" onclick="showModal('demoModal'); return false;" class="bg-cyan-400 text-gray-900 hover:bg-cyan-300 font-bold py-4 px-10 rounded-full text-xl shadow-2xl inline-block transition duration-300 hover:scale-105">
+                    Jadwalkan Demo 15 Menit Gratis
+                </a>
+                <a href="#" onclick="showModal('salesModal'); return false;" class="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 font-semibold py-4 px-10 rounded-full text-xl inline-block transition duration-300 hover:scale-105">
+                    Minta Penawaran Spesial
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Now with Background Image -->
+    <footer class="footer-bg-image text-white py-10 border-t border-cyan-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm footer-content">
+            <div class="mb-4">
+                <!-- LOGO di Footer: Ukuran dipertahankan kecil (h-10 md:h-12) -->
+                <img 
+                    src="https://raw.githubusercontent.com/Aksaracreative/Heillo/refs/heads/main/Logo%20White.png" 
+                    alt="Heillo AI Logo" 
+                    class="h-10 md:h-12 w-auto mx-auto mb-2" 
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x80/00C4FF/0A0A0A?text=HEILLO+AI';"
+                />
+                <p class="text-gray-400 mt-2">Solusi CS & Sales Automation 24/7 Berbasis AI Humanis</p>
+            </div>
+            <nav class="space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-150">Kebijakan Privasi</a>
+                <span class="text-gray-700">|</span>
+                <a href="#" class="text-gray-400 hover:text-cyan-400 transition duration-150">Syarat & Ketentuan</a>
+            </nav>
+            <p class="text-gray-500">&copy; 2024 Heillo AI. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for CTA (Custom Message Box) -->
+    <div id="demoModal" class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden items-center justify-center z-[100]">
+        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl max-w-md w-full m-4 border-t-4 border-cyan-400">
+            <h3 class="text-2xl font-bold mb-4 text-cyan-400">Jadwalkan Demo Gratis</h3>
+            <p class="mb-6 text-gray-300">Tim Sales kami akan segera menghubungi Anda untuk menjadwalkan demo 15 menit. Silakan tinggalkan kontak Anda.</p>
+            <form>
+                <input type="text" placeholder="Nama Anda" class="w-full p-3 mb-4 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <input type="email" placeholder="Email Kantor" class="w-full p-3 mb-4 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <input type="tel" placeholder="Nomor WhatsApp" class="w-full p-3 mb-6 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <button type="button" onclick="closeModal('demoModal'); showSuccess('demo');" class="w-full bg-cyan-600 hover:bg-cyan-700 text-gray-900 font-bold py-3 rounded-full transition duration-150">Kirim Permintaan Demo</button>
+            </form>
+            <button onclick="closeModal('demoModal')" class="mt-4 w-full text-sm text-gray-400 hover:text-cyan-400">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Modal for Special Offer/Sales -->
+    <div id="salesModal" class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden items-center justify-center z-[100]">
+        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl max-w-md w-full m-4 border-t-4 border-cyan-400">
+            <h3 class="text-2xl font-bold mb-4 text-cyan-400">Dapatkan Penawaran Khusus</h3>
+            <p class="mb-6 text-gray-300">Tertarik dengan Paket Pro atau Enterprise? Tim Sales khusus kami akan menyusun penawaran terbaik untuk volume bisnis Anda.</p>
+            <form>
+                <input type="text" placeholder="Nama Anda" class="w-full p-3 mb-4 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <input type="text" placeholder="Nama Perusahaan" class="w-full p-3 mb-4 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <input type="tel" placeholder="Nomor Kontak" class="w-full p-3 mb-6 border border-gray-700 rounded-lg bg-gray-900 text-white focus:ring-cyan-500 focus:border-cyan-500">
+                <button type="button" onclick="closeModal('salesModal'); showSuccess('sales');" class="w-full bg-cyan-400 hover:bg-cyan-300 text-gray-900 font-bold py-3 rounded-full transition duration-150">Minta Penawaran Spesial</button>
+            </form>
+            <button onclick="closeModal('salesModal')" class="mt-4 w-full text-sm text-gray-400 hover:text-cyan-400">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Success Message Box -->
+    <div id="successMessage" class="fixed bottom-5 right-5 bg-cyan-600 text-gray-900 p-4 rounded-lg shadow-xl hidden z-[101]">
+        <p id="successText"></p>
+    </div>
+
+    <script>
+        // JavaScript for Modal (Custom Message Box) Logic
+        function showModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Disable background scroll
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.getElementById(id).classList.remove('flex');
+            document.body.style.overflow = ''; // Enable background scroll
+        }
+
+        function showSuccess(type) {
+            const successBox = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            
+            if (type === 'demo') {
+                successText.textContent = 'Permintaan Demo Terkirim! Tim kami akan segera menghubungi Anda.';
+            } else if (type === 'sales') {
+                successText.textContent = 'Permintaan Penawaran Terkirim! Tim Sales siap membantu Anda.';
+            }
+            
+            successBox.classList.remove('hidden');
+            
+            // Hide after 4 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
